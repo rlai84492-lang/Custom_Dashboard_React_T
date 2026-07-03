@@ -547,6 +547,10 @@ css += `
 
 css += bpRules.join('\n') + '\n';
 
+// const outPath = path.join(__dirname, 'public', 'styles.css');
+// fs.writeFileSync(outPath, css);
+
 const outPath = path.join(__dirname, 'public', 'styles.css');
+fs.mkdirSync(path.dirname(outPath), { recursive: true });
 fs.writeFileSync(outPath, css);
 console.log('Wrote', outPath, (css.length/1024).toFixed(1) + 'KB');
